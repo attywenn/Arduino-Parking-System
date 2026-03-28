@@ -64,13 +64,13 @@ void loop() {
     digitalWrite(RED, HIGH);
   }
 
-  // 🔥 SEND ONLY WHEN CHANGED (IMPORTANT)
+  // SEND ONLY WHEN CHANGED
   if (motionDetected != lastState) {
     Serial.println(motionDetected ? "TRUE" : "FALSE");
     lastState = motionDetected;
   }
 
-  // 🔥 READ VB COMMANDS
+  // READ VB COMMANDS
   if (Serial.available() > 0) {
     String command = Serial.readStringUntil('\n');
     command.trim();
@@ -111,5 +111,5 @@ void loop() {
     }
   }
 
-  delay(100); // 🔥 reduced delay for responsiveness
+  delay(100); // reduced delay for responsiveness
 }
